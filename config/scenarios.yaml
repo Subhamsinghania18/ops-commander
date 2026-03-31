@@ -1,0 +1,25 @@
+scenarios:
+  default_cascade:
+    description: "orders-db latency causes orders-service timeouts and worker backlog"
+    start_after_seconds: 30
+    duration_seconds: 120
+    root_fault:
+      service: orders-db
+      type: latency_spike
+      severity: critical
+      latency_multiplier: 8.0
+    propagation:
+      - service: orders-service
+        after_seconds: 8
+        effects:
+          error_rate_multiplier: 5.5
+          p95_latency_multiplier: 4.0
+      - service: api-gateway
+        after_seconds: 20
+        effects:
+          error_rate_multiplier: 2.5
+          p95_latency_multiplier: 2.0
+      - service: worker-service
+        after_seconds: 28
+        effects:
+          queue_backlog_multiplier: 6.0

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EventEnvelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "event_type",
+    "event_time",
+    "ingest_time",
+    "service_name",
+    "instance_id",
+    "environment",
+    "region",
+    "severity",
+    "correlation_keys",
+    "payload",
+    "quality_flags",
+    "schema_version"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 8},
+    "event_type": {"type": "string", "enum": ["log", "metric", "alert"]},
+    "event_time": {"type": "string", "format": "date-time"},
+    "ingest_time": {"type": "string", "format": "date-time"},
+    "service_name": {"type": "string", "minLength": 1},
+    "instance_id": {"type": "string", "minLength": 1},
+    "environment": {"type": "string", "minLength": 1},
+    "region": {"type": "string", "minLength": 1},
+    "severity": {"type": "string", "enum": ["debug", "info", "warn", "error", "critical"]},
+    "correlation_keys": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "payload": {"type": "object"},
+    "quality_flags": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["late", "duplicate", "missing_fields", "clock_skew_suspected", "out_of_order"],
+      "properties": {
+        "late": {"type": "boolean"},
+        "duplicate": {"type": "boolean"},
+        "missing_fields": {"type": "boolean"},
+        "clock_skew_suspected": {"type": "boolean"},
+        "out_of_order": {"type": "boolean"}
+      }
+    },
+    "schema_version": {"type": "string", "const": "v1"}
+  }
+}

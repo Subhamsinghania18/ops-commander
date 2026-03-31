@@ -1,0 +1,7 @@
+{
+  "cpu": 0.35,
+  "memory": 0.45,
+  "error_rate": 0.005,
+  "p95_latency_ms": 75,
+  "queue_backlog": 5
+}

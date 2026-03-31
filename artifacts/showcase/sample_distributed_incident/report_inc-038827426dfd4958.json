@@ -1,0 +1,825 @@
+{
+  "report_id": "report-inc-038827426dfd4958",
+  "generated_at": "2026-03-31T20:23:37.762866+05:30",
+  "incident": {
+    "incident_id": "inc-038827426dfd4958",
+    "status": "triaging",
+    "severity": "critical",
+    "window_start": "2026-03-31T20:17:23.207473+05:30",
+    "window_end": "2026-03-31T20:17:23.211008+05:30",
+    "affected_services": [
+      "api-gateway",
+      "orders-db",
+      "orders-service",
+      "worker-service"
+    ]
+  },
+  "what_failed": {
+    "primary_symptom_service": "orders-service",
+    "confidence": 0.762604,
+    "top_score": 0.870488
+  },
+  "why_it_likely_failed": {
+    "root_cause": "orders-service",
+    "evidence_summary": {
+      "scores": {
+        "precedence": 0.99885,
+        "blast_radius": 1.0,
+        "causal_support": 1.0,
+        "signal_diversity": 0.666667,
+        "anomaly_magnitude": 0.883333,
+        "dependency_centrality": 1.0,
+        "signal_quality_penalty": 0.0
+      },
+      "service": "orders-service",
+      "evidence": {
+        "last_seen": "2026-03-31T20:17:23.208623+05:30",
+        "cluster_id": "a2f93112-1645-45b6-8216-16447cd85e32",
+        "first_seen": "2026-03-31T20:17:23.208623+05:30",
+        "event_count": 3,
+        "signal_types": [
+          "alert",
+          "log"
+        ],
+        "critical_alert": true
+      },
+      "causal_support": {
+        "incoming": [
+          {
+            "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+            "weight": 1.0,
+            "metadata": {
+              "origin": "candidate",
+              "shared_keys": [
+                "fault_chain_id",
+                "fault_root_service",
+                "request_id",
+                "trace_id"
+              ],
+              "dependency_depth": 1,
+              "shared_key_count": 4,
+              "dependency_relation": "downstream",
+              "temporal_gap_seconds": 0.001
+            },
+            "source_service": "api-gateway"
+          },
+          {
+            "reason": "dependency-overlap",
+            "weight": 0.5,
+            "metadata": {
+              "origin": "inferred",
+              "lag_seconds": -0.002,
+              "dependency_depth": 1,
+              "temporal_proximity": 1.0
+            },
+            "source_service": "orders-db"
+          }
+        ],
+        "outgoing": [
+          {
+            "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+            "weight": 1.0,
+            "metadata": {
+              "origin": "candidate",
+              "shared_keys": [
+                "fault_chain_id",
+                "fault_root_service",
+                "request_id",
+                "trace_id"
+              ],
+              "dependency_depth": 1,
+              "shared_key_count": 4,
+              "dependency_relation": "upstream",
+              "temporal_gap_seconds": 0.001
+            },
+            "target_service": "worker-service"
+          },
+          {
+            "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+            "weight": 1.0,
+            "metadata": {
+              "origin": "candidate",
+              "shared_keys": [
+                "fault_chain_id",
+                "fault_root_service",
+                "request_id",
+                "trace_id"
+              ],
+              "dependency_depth": 1,
+              "shared_key_count": 4,
+              "dependency_relation": "downstream",
+              "temporal_gap_seconds": 0.002
+            },
+            "target_service": "orders-db"
+          },
+          {
+            "reason": "dependency-overlap",
+            "weight": 0.5,
+            "metadata": {
+              "origin": "inferred",
+              "lag_seconds": -0.001,
+              "dependency_depth": 1,
+              "temporal_proximity": 1.0
+            },
+            "target_service": "api-gateway"
+          }
+        ]
+      }
+    },
+    "competing_hypotheses": [
+      {
+        "rank": 2,
+        "service": "orders-db",
+        "score": 0.679035,
+        "confidence": 0.430348,
+        "component_scores": {
+          "precedence": 0.996465,
+          "blast_radius": 0.786667,
+          "causal_support": 0.519608,
+          "signal_diversity": 1.0,
+          "anomaly_magnitude": 0.783678,
+          "dependency_centrality": 0.330882,
+          "signal_quality_penalty": 0.0
+        },
+        "explanation": {
+          "scores": {
+            "precedence": 0.996465,
+            "blast_radius": 0.786667,
+            "causal_support": 0.519608,
+            "signal_diversity": 1.0,
+            "anomaly_magnitude": 0.783678,
+            "dependency_centrality": 0.330882,
+            "signal_quality_penalty": 0.0
+          },
+          "service": "orders-db",
+          "evidence": {
+            "last_seen": "2026-03-31T20:17:23.211008+05:30",
+            "cluster_id": "f7435aa3-8513-4ffd-a6dc-7e4c5f9beb6f",
+            "first_seen": "2026-03-31T20:17:23.211008+05:30",
+            "event_count": 7,
+            "signal_types": [
+              "alert",
+              "log",
+              "metric"
+            ],
+            "critical_alert": true
+          },
+          "causal_support": {
+            "incoming": [
+              {
+                "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+                "weight": 1.0,
+                "metadata": {
+                  "origin": "candidate",
+                  "shared_keys": [
+                    "fault_chain_id",
+                    "fault_root_service",
+                    "request_id",
+                    "trace_id"
+                  ],
+                  "dependency_depth": 1,
+                  "shared_key_count": 4,
+                  "dependency_relation": "downstream",
+                  "temporal_gap_seconds": 0.002
+                },
+                "source_service": "orders-service"
+              }
+            ],
+            "outgoing": [
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.333333,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.004,
+                  "dependency_depth": 2,
+                  "temporal_proximity": 1.0
+                },
+                "target_service": "api-gateway"
+              },
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.5,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.002,
+                  "dependency_depth": 1,
+                  "temporal_proximity": 1.0
+                },
+                "target_service": "orders-service"
+              },
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.333333,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.001,
+                  "dependency_depth": 2,
+                  "temporal_proximity": 1.0
+                },
+                "target_service": "worker-service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "rank": 3,
+        "service": "api-gateway",
+        "score": 0.649729,
+        "confidence": 0.447034,
+        "component_scores": {
+          "precedence": 1.0,
+          "blast_radius": 0.36,
+          "causal_support": 0.441176,
+          "signal_diversity": 0.666667,
+          "anomaly_magnitude": 0.797035,
+          "dependency_centrality": 0.482353,
+          "signal_quality_penalty": 0.0
+        },
+        "explanation": {
+          "scores": {
+            "precedence": 1.0,
+            "blast_radius": 0.36,
+            "causal_support": 0.441176,
+            "signal_diversity": 0.666667,
+            "anomaly_magnitude": 0.797035,
+            "dependency_centrality": 0.482353,
+            "signal_quality_penalty": 0.0
+          },
+          "service": "api-gateway",
+          "evidence": {
+            "last_seen": "2026-03-31T20:17:23.207473+05:30",
+            "cluster_id": "7cd5861d-a4b9-4122-b041-c052622b3f93",
+            "first_seen": "2026-03-31T20:17:23.207473+05:30",
+            "event_count": 3,
+            "signal_types": [
+              "alert",
+              "log"
+            ],
+            "critical_alert": true
+          },
+          "causal_support": {
+            "incoming": [
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.5,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.001,
+                  "dependency_depth": 1,
+                  "temporal_proximity": 1.0
+                },
+                "source_service": "orders-service"
+              },
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.333333,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.004,
+                  "dependency_depth": 2,
+                  "temporal_proximity": 1.0
+                },
+                "source_service": "orders-db"
+              }
+            ],
+            "outgoing": [
+              {
+                "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+                "weight": 1.0,
+                "metadata": {
+                  "origin": "candidate",
+                  "shared_keys": [
+                    "fault_chain_id",
+                    "fault_root_service",
+                    "request_id",
+                    "trace_id"
+                  ],
+                  "dependency_depth": 1,
+                  "shared_key_count": 4,
+                  "dependency_relation": "downstream",
+                  "temporal_gap_seconds": 0.001
+                },
+                "target_service": "orders-service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "service": "worker-service",
+        "score": 0.442881,
+        "confidence": 0.366024,
+        "component_scores": {
+          "precedence": 0.997495,
+          "blast_radius": 0.0,
+          "causal_support": 0.235294,
+          "signal_diversity": 0.666667,
+          "anomaly_magnitude": 0.518061,
+          "dependency_centrality": 0.245588,
+          "signal_quality_penalty": 0.35
+        },
+        "explanation": {
+          "scores": {
+            "precedence": 0.997495,
+            "blast_radius": 0.0,
+            "causal_support": 0.235294,
+            "signal_diversity": 0.666667,
+            "anomaly_magnitude": 0.518061,
+            "dependency_centrality": 0.245588,
+            "signal_quality_penalty": 0.35
+          },
+          "service": "worker-service",
+          "evidence": {
+            "last_seen": "2026-03-31T20:17:23.209978+05:30",
+            "cluster_id": "ad42d3eb-16de-49f5-9098-f07b3cd80ddf",
+            "first_seen": "2026-03-31T20:17:23.209978+05:30",
+            "event_count": 2,
+            "signal_types": [
+              "alert",
+              "log"
+            ],
+            "critical_alert": true
+          },
+          "causal_support": {
+            "incoming": [
+              {
+                "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+                "weight": 1.0,
+                "metadata": {
+                  "origin": "candidate",
+                  "shared_keys": [
+                    "fault_chain_id",
+                    "fault_root_service",
+                    "request_id",
+                    "trace_id"
+                  ],
+                  "dependency_depth": 1,
+                  "shared_key_count": 4,
+                  "dependency_relation": "upstream",
+                  "temporal_gap_seconds": 0.001
+                },
+                "source_service": "orders-service"
+              },
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.333333,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.001,
+                  "dependency_depth": 2,
+                  "temporal_proximity": 1.0
+                },
+                "source_service": "orders-db"
+              }
+            ],
+            "outgoing": []
+          }
+        }
+      }
+    ]
+  },
+  "how_failure_propagated": [
+    {
+      "from": "api-gateway",
+      "to": "orders-service",
+      "path": "api-gateway -> orders-service",
+      "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+      "weight": 1.0,
+      "lag_seconds": null
+    },
+    {
+      "from": "orders-service",
+      "to": "orders-db",
+      "path": "orders-service -> orders-db",
+      "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+      "weight": 1.0,
+      "lag_seconds": null
+    },
+    {
+      "from": "orders-service",
+      "to": "worker-service",
+      "path": "orders-service -> worker-service",
+      "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+      "weight": 1.0,
+      "lag_seconds": null
+    },
+    {
+      "from": "orders-db",
+      "to": "orders-service",
+      "path": "orders-db -> orders-service",
+      "reason": "dependency-overlap",
+      "weight": 0.5,
+      "lag_seconds": -0.002
+    },
+    {
+      "from": "orders-service",
+      "to": "api-gateway",
+      "path": "orders-service -> api-gateway",
+      "reason": "dependency-overlap",
+      "weight": 0.5,
+      "lag_seconds": -0.001
+    },
+    {
+      "from": "orders-db",
+      "to": "api-gateway",
+      "path": "orders-db -> api-gateway",
+      "reason": "dependency-overlap",
+      "weight": 0.333333,
+      "lag_seconds": -0.004
+    },
+    {
+      "from": "orders-db",
+      "to": "worker-service",
+      "path": "orders-db -> worker-service",
+      "reason": "dependency-overlap",
+      "weight": 0.333333,
+      "lag_seconds": -0.001
+    }
+  ],
+  "diagnosis": {
+    "rankings": [
+      {
+        "rank": 1,
+        "service": "orders-service",
+        "score": 0.870488,
+        "confidence": 0.762604,
+        "component_scores": {
+          "precedence": 0.99885,
+          "blast_radius": 1.0,
+          "causal_support": 1.0,
+          "signal_diversity": 0.666667,
+          "anomaly_magnitude": 0.883333,
+          "dependency_centrality": 1.0,
+          "signal_quality_penalty": 0.0
+        },
+        "explanation": {
+          "scores": {
+            "precedence": 0.99885,
+            "blast_radius": 1.0,
+            "causal_support": 1.0,
+            "signal_diversity": 0.666667,
+            "anomaly_magnitude": 0.883333,
+            "dependency_centrality": 1.0,
+            "signal_quality_penalty": 0.0
+          },
+          "service": "orders-service",
+          "evidence": {
+            "last_seen": "2026-03-31T20:17:23.208623+05:30",
+            "cluster_id": "a2f93112-1645-45b6-8216-16447cd85e32",
+            "first_seen": "2026-03-31T20:17:23.208623+05:30",
+            "event_count": 3,
+            "signal_types": [
+              "alert",
+              "log"
+            ],
+            "critical_alert": true
+          },
+          "causal_support": {
+            "incoming": [
+              {
+                "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+                "weight": 1.0,
+                "metadata": {
+                  "origin": "candidate",
+                  "shared_keys": [
+                    "fault_chain_id",
+                    "fault_root_service",
+                    "request_id",
+                    "trace_id"
+                  ],
+                  "dependency_depth": 1,
+                  "shared_key_count": 4,
+                  "dependency_relation": "downstream",
+                  "temporal_gap_seconds": 0.001
+                },
+                "source_service": "api-gateway"
+              },
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.5,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.002,
+                  "dependency_depth": 1,
+                  "temporal_proximity": 1.0
+                },
+                "source_service": "orders-db"
+              }
+            ],
+            "outgoing": [
+              {
+                "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+                "weight": 1.0,
+                "metadata": {
+                  "origin": "candidate",
+                  "shared_keys": [
+                    "fault_chain_id",
+                    "fault_root_service",
+                    "request_id",
+                    "trace_id"
+                  ],
+                  "dependency_depth": 1,
+                  "shared_key_count": 4,
+                  "dependency_relation": "upstream",
+                  "temporal_gap_seconds": 0.001
+                },
+                "target_service": "worker-service"
+              },
+              {
+                "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+                "weight": 1.0,
+                "metadata": {
+                  "origin": "candidate",
+                  "shared_keys": [
+                    "fault_chain_id",
+                    "fault_root_service",
+                    "request_id",
+                    "trace_id"
+                  ],
+                  "dependency_depth": 1,
+                  "shared_key_count": 4,
+                  "dependency_relation": "downstream",
+                  "temporal_gap_seconds": 0.002
+                },
+                "target_service": "orders-db"
+              },
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.5,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.001,
+                  "dependency_depth": 1,
+                  "temporal_proximity": 1.0
+                },
+                "target_service": "api-gateway"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "rank": 2,
+        "service": "orders-db",
+        "score": 0.679035,
+        "confidence": 0.430348,
+        "component_scores": {
+          "precedence": 0.996465,
+          "blast_radius": 0.786667,
+          "causal_support": 0.519608,
+          "signal_diversity": 1.0,
+          "anomaly_magnitude": 0.783678,
+          "dependency_centrality": 0.330882,
+          "signal_quality_penalty": 0.0
+        },
+        "explanation": {
+          "scores": {
+            "precedence": 0.996465,
+            "blast_radius": 0.786667,
+            "causal_support": 0.519608,
+            "signal_diversity": 1.0,
+            "anomaly_magnitude": 0.783678,
+            "dependency_centrality": 0.330882,
+            "signal_quality_penalty": 0.0
+          },
+          "service": "orders-db",
+          "evidence": {
+            "last_seen": "2026-03-31T20:17:23.211008+05:30",
+            "cluster_id": "f7435aa3-8513-4ffd-a6dc-7e4c5f9beb6f",
+            "first_seen": "2026-03-31T20:17:23.211008+05:30",
+            "event_count": 7,
+            "signal_types": [
+              "alert",
+              "log",
+              "metric"
+            ],
+            "critical_alert": true
+          },
+          "causal_support": {
+            "incoming": [
+              {
+                "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+                "weight": 1.0,
+                "metadata": {
+                  "origin": "candidate",
+                  "shared_keys": [
+                    "fault_chain_id",
+                    "fault_root_service",
+                    "request_id",
+                    "trace_id"
+                  ],
+                  "dependency_depth": 1,
+                  "shared_key_count": 4,
+                  "dependency_relation": "downstream",
+                  "temporal_gap_seconds": 0.002
+                },
+                "source_service": "orders-service"
+              }
+            ],
+            "outgoing": [
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.333333,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.004,
+                  "dependency_depth": 2,
+                  "temporal_proximity": 1.0
+                },
+                "target_service": "api-gateway"
+              },
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.5,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.002,
+                  "dependency_depth": 1,
+                  "temporal_proximity": 1.0
+                },
+                "target_service": "orders-service"
+              },
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.333333,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.001,
+                  "dependency_depth": 2,
+                  "temporal_proximity": 1.0
+                },
+                "target_service": "worker-service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "rank": 3,
+        "service": "api-gateway",
+        "score": 0.649729,
+        "confidence": 0.447034,
+        "component_scores": {
+          "precedence": 1.0,
+          "blast_radius": 0.36,
+          "causal_support": 0.441176,
+          "signal_diversity": 0.666667,
+          "anomaly_magnitude": 0.797035,
+          "dependency_centrality": 0.482353,
+          "signal_quality_penalty": 0.0
+        },
+        "explanation": {
+          "scores": {
+            "precedence": 1.0,
+            "blast_radius": 0.36,
+            "causal_support": 0.441176,
+            "signal_diversity": 0.666667,
+            "anomaly_magnitude": 0.797035,
+            "dependency_centrality": 0.482353,
+            "signal_quality_penalty": 0.0
+          },
+          "service": "api-gateway",
+          "evidence": {
+            "last_seen": "2026-03-31T20:17:23.207473+05:30",
+            "cluster_id": "7cd5861d-a4b9-4122-b041-c052622b3f93",
+            "first_seen": "2026-03-31T20:17:23.207473+05:30",
+            "event_count": 3,
+            "signal_types": [
+              "alert",
+              "log"
+            ],
+            "critical_alert": true
+          },
+          "causal_support": {
+            "incoming": [
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.5,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.001,
+                  "dependency_depth": 1,
+                  "temporal_proximity": 1.0
+                },
+                "source_service": "orders-service"
+              },
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.333333,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.004,
+                  "dependency_depth": 2,
+                  "temporal_proximity": 1.0
+                },
+                "source_service": "orders-db"
+              }
+            ],
+            "outgoing": [
+              {
+                "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+                "weight": 1.0,
+                "metadata": {
+                  "origin": "candidate",
+                  "shared_keys": [
+                    "fault_chain_id",
+                    "fault_root_service",
+                    "request_id",
+                    "trace_id"
+                  ],
+                  "dependency_depth": 1,
+                  "shared_key_count": 4,
+                  "dependency_relation": "downstream",
+                  "temporal_gap_seconds": 0.001
+                },
+                "target_service": "orders-service"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "rank": 4,
+        "service": "worker-service",
+        "score": 0.442881,
+        "confidence": 0.366024,
+        "component_scores": {
+          "precedence": 0.997495,
+          "blast_radius": 0.0,
+          "causal_support": 0.235294,
+          "signal_diversity": 0.666667,
+          "anomaly_magnitude": 0.518061,
+          "dependency_centrality": 0.245588,
+          "signal_quality_penalty": 0.35
+        },
+        "explanation": {
+          "scores": {
+            "precedence": 0.997495,
+            "blast_radius": 0.0,
+            "causal_support": 0.235294,
+            "signal_diversity": 0.666667,
+            "anomaly_magnitude": 0.518061,
+            "dependency_centrality": 0.245588,
+            "signal_quality_penalty": 0.35
+          },
+          "service": "worker-service",
+          "evidence": {
+            "last_seen": "2026-03-31T20:17:23.209978+05:30",
+            "cluster_id": "ad42d3eb-16de-49f5-9098-f07b3cd80ddf",
+            "first_seen": "2026-03-31T20:17:23.209978+05:30",
+            "event_count": 2,
+            "signal_types": [
+              "alert",
+              "log"
+            ],
+            "critical_alert": true
+          },
+          "causal_support": {
+            "incoming": [
+              {
+                "reason": "temporal+topology+correlation_keys[fault_chain_id,fault_root_service,request_id,trace_id]",
+                "weight": 1.0,
+                "metadata": {
+                  "origin": "candidate",
+                  "shared_keys": [
+                    "fault_chain_id",
+                    "fault_root_service",
+                    "request_id",
+                    "trace_id"
+                  ],
+                  "dependency_depth": 1,
+                  "shared_key_count": 4,
+                  "dependency_relation": "upstream",
+                  "temporal_gap_seconds": 0.001
+                },
+                "source_service": "orders-service"
+              },
+              {
+                "reason": "dependency-overlap",
+                "weight": 0.333333,
+                "metadata": {
+                  "origin": "inferred",
+                  "lag_seconds": -0.001,
+                  "dependency_depth": 2,
+                  "temporal_proximity": 1.0
+                },
+                "source_service": "orders-db"
+              }
+            ],
+            "outgoing": []
+          }
+        }
+      }
+    ],
+    "edge_count": 7,
+    "signal_coverage": [
+      "alert",
+      "log",
+      "metric"
+    ],
+    "hypothesis_count": 4
+  }
+}

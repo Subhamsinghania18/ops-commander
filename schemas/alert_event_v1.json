@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AlertEventPayload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["alert_name", "status", "summary"],
+  "properties": {
+    "alert_name": {"type": "string", "minLength": 1},
+    "status": {"type": "string", "enum": ["firing", "resolved"]},
+    "threshold": {"type": ["number", "null"]},
+    "observed": {"type": ["number", "null"]},
+    "summary": {"type": "string", "minLength": 1}
+  }
+}

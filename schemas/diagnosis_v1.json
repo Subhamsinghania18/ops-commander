@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Diagnosis",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["incident_id", "rankings", "generated_at"],
+  "properties": {
+    "incident_id": {"type": "string"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "rankings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["service", "score", "confidence", "explanation"],
+        "properties": {
+          "service": {"type": "string"},
+          "score": {"type": "number"},
+          "confidence": {"type": "number"},
+          "explanation": {"type": "string"}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "status": "ready",
+  "service": "reporter-api",
+  "checks": {
+    "postgres": "ok",
+    "replay_queue_visibility": "ok",
+    "replay_job_status_counts": {
+      "completed": 1
+    }
+  }
+}

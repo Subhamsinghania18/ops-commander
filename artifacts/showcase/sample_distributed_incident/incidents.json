@@ -1,0 +1,87 @@
+{
+  "page": 1,
+  "page_size": 25,
+  "total": 5,
+  "items": [
+    {
+      "incident_id": "inc-8771739b838c432f",
+      "candidate_id": "a2a4b17d-9b33-480d-97ca-10aef16ca060",
+      "status": "triaging",
+      "severity": "medium",
+      "window_start": "2026-03-31T20:21:20.833572+05:30",
+      "window_end": "2026-03-31T20:22:01.071383+05:30",
+      "affected_services": [
+        "orders-db"
+      ],
+      "top_service": "orders-db",
+      "top_score": 0.585,
+      "confidence": 0.99,
+      "updated_at": "2026-03-31T20:22:04.914666+05:30"
+    },
+    {
+      "incident_id": "inc-0f9e11cb71b9deed",
+      "candidate_id": "a4d650a4-e8e0-44c3-92e2-fe46c0c250db",
+      "status": "triaging",
+      "severity": "medium",
+      "window_start": "2026-03-31T20:20:11.928697+05:30",
+      "window_end": "2026-03-31T20:20:25.015955+05:30",
+      "affected_services": [
+        "orders-db"
+      ],
+      "top_service": "orders-db",
+      "top_score": 0.585,
+      "confidence": 0.99,
+      "updated_at": "2026-03-31T20:22:01.93732+05:30"
+    },
+    {
+      "incident_id": "inc-038827426dfd4958",
+      "candidate_id": "bc9540ce-8340-434e-bfb8-88f5313ddff8",
+      "status": "triaging",
+      "severity": "critical",
+      "window_start": "2026-03-31T20:17:23.207473+05:30",
+      "window_end": "2026-03-31T20:17:23.211008+05:30",
+      "affected_services": [
+        "api-gateway",
+        "orders-db",
+        "orders-service",
+        "worker-service"
+      ],
+      "top_service": "orders-service",
+      "top_score": 0.870488,
+      "confidence": 0.762604,
+      "updated_at": "2026-03-31T20:18:28.712211+05:30"
+    },
+    {
+      "incident_id": "inc-e7c5dbb8e5ba6efd",
+      "candidate_id": "5cab7443-29e5-408e-a9e8-91ad2165747e",
+      "status": "triaging",
+      "severity": "high",
+      "window_start": "2026-03-31T20:14:13.491666+05:30",
+      "window_end": "2026-03-31T20:14:17.85516+05:30",
+      "affected_services": [
+        "api-gateway",
+        "orders-service",
+        "worker-service"
+      ],
+      "top_service": "orders-service",
+      "top_score": 0.884947,
+      "confidence": 0.586592,
+      "updated_at": "2026-03-31T20:15:23.495544+05:30"
+    },
+    {
+      "incident_id": "inc-4034e7322089f61b",
+      "candidate_id": "f5155133-6c97-4aff-afb7-2de5618f485e",
+      "status": "triaging",
+      "severity": "critical",
+      "window_start": "2026-03-31T19:51:26.321241+05:30",
+      "window_end": "2026-03-31T19:51:26.321411+05:30",
+      "affected_services": [
+        "checkout-ext"
+      ],
+      "top_service": "checkout-ext",
+      "top_score": 0.55,
+      "confidence": 0.75026,
+      "updated_at": "2026-03-31T19:52:31.790005+05:30"
+    }
+  ]
+}

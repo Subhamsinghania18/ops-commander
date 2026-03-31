@@ -1,0 +1,25 @@
+{
+  "job_id": "replay-daa3dc0d-eca1-4086-a528-33f18297aec1",
+  "status": "completed",
+  "scenario_name": "default_cascade",
+  "expected_root_service": "orders-db",
+  "archive_path": "data\\archive",
+  "replay_stats": {
+    "total_records": 123530,
+    "replay_start": "2026-03-31T14:24:46.927172Z",
+    "replay_end": "2026-03-31T14:30:35.973349Z",
+    "speed_factor": 5.0
+  },
+  "diagnosed_count": 0,
+  "evaluation": {
+    "summary": {
+      "incident_count": 0,
+      "top1_accuracy": 0.0,
+      "top3_accuracy": 0.0,
+      "mrr": 0.0,
+      "calibration_bins": []
+    },
+    "per_incident": []
+  },
+  "generated_at": "2026-03-31T14:30:51.463403+00:00"
+}

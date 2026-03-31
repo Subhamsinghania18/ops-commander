@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LogEventPayload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["message", "logger"],
+  "properties": {
+    "message": {"type": "string", "minLength": 1},
+    "logger": {"type": "string"},
+    "exception": {"type": ["string", "null"]},
+    "code": {"type": ["string", "null"]}
+  }
+}

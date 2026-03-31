@@ -1,0 +1,17 @@
+{
+  "service": "reporter-api",
+  "started_at": "2026-03-31T20:21:22.202918+05:30",
+  "uptime_seconds": 129,
+  "processed_total": 7,
+  "dropped_total": 0,
+  "error_total": 0,
+  "retried_total": 0,
+  "avg_process_latency_ms": 17.788,
+  "last_error": null,
+  "timestamp": "2026-03-31T20:23:31.583739+05:30",
+  "extra": {
+    "replay_job_status_counts": {
+      "completed": 1
+    }
+  }
+}

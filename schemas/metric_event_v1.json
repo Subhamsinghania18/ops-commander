@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MetricEventPayload",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["metric_name", "value", "unit", "tags"],
+  "properties": {
+    "metric_name": {"type": "string", "minLength": 1},
+    "value": {"type": "number"},
+    "unit": {"type": "string"},
+    "tags": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    }
+  }
+}

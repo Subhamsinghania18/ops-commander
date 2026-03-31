@@ -1,0 +1,40 @@
+# Local environment
+.env
+.venv/
+venv/
+.python-version
+
+# Python caches and bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+pip-wheel-metadata/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/settings.json
+
+# Runtime captures and archives (keep curated sample + placeholders)
+data/archive/*
+!data/archive/.gitkeep
+!data/archive/evaluations/
+data/archive/evaluations/*
+!data/archive/evaluations/.gitkeep
+
+artifacts/showcase/*
+!artifacts/showcase/README.md
+!artifacts/showcase/sample_distributed_incident/
+!artifacts/showcase/sample_distributed_incident/**
+
+plan.md

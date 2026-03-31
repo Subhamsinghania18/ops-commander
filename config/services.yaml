@@ -1,0 +1,25 @@
+services:
+  - name: api-gateway
+    tier: edge
+    depends_on: [auth-service, orders-service]
+  - name: auth-service
+    tier: core
+    depends_on: [user-db]
+  - name: orders-service
+    tier: core
+    depends_on: [orders-db, inventory-service]
+  - name: inventory-service
+    tier: core
+    depends_on: [inventory-db]
+  - name: worker-service
+    tier: async
+    depends_on: [orders-service]
+  - name: user-db
+    tier: data
+    depends_on: []
+  - name: orders-db
+    tier: data
+    depends_on: []
+  - name: inventory-db
+    tier: data
+    depends_on: []

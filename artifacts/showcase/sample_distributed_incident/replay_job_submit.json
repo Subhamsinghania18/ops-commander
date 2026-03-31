@@ -1,0 +1,14 @@
+{
+  "job_id": "replay-9c95b3d2-76bf-4602-be8b-98bc62b7f223",
+  "status": "queued",
+  "requested_by": "api",
+  "request": {
+    "incident_id": "inc-038827426dfd4958",
+    "scenario_name": null,
+    "start_time": null,
+    "end_time": null,
+    "speed_factor": 5.0,
+    "note": "showcase-capture"
+  },
+  "created_at": "2026-03-31T20:23:39.804534+05:30"
+}
